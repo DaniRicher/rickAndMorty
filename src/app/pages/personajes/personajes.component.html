@@ -1,1 +1,27 @@
-<p>personajes works!</p>
+<div class="card">
+    <p-table [value]="prueba" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="imagen">Imagen <p-sortIcon field="imagen"></p-sortIcon></th>
+                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="estado">Estado del Personaje <p-sortIcon field="estado"></p-sortIcon></th>
+                <th pSortableColumn="especie">Especie <p-sortIcon field="especie"></p-sortIcon></th>
+                <th pSortableColumn="ulocation">Ultima Localización <p-sortIcon field="ulocation"></p-sortIcon></th>
+                <th pSortableColumn="uepisode">Ultimo Espisodio <p-sortIcon field="uepisode"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-personaje>
+            <tr>
+                <td><img src="{{ personaje.image }}" alt="{{ personaje.name }}"></td>
+                <td>{{ personaje.name }}</td>
+                <td>{{ personaje.status }}</td>
+                <td>{{ personaje.species }}</td>
+                <td>{{ personaje.location.name }}</td>
+                <td>{{ personaje.name }}</td>
+            </tr>
+        </ng-template>
+        
+        
+    </p-table>
+</div>

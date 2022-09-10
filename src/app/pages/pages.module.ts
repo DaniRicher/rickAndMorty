@@ -8,6 +8,7 @@ import { PersonajesComponent } from './personajes/personajes.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { LocacionPersonajeComponent } from './locacion-personaje/locacion-personaje.component';
+import { PrimeNgModule } from '../primeng/prime-ng.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LocacionPersonajeComponent } from './locacion-personaje/locacion-person
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    PrimeNgModule
   ]
 })
 export class PagesModule { }
