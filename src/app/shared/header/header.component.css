@@ -1,0 +1,5 @@
+
+.card {
+    background: var(--surface-card) ;
+    display: block;
+}
