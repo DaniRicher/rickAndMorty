@@ -10,4 +10,4 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule
   ]
 })
-export class PrimengModule { }
+export class PrimeNgModule { }

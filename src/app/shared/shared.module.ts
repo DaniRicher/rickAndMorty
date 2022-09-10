@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrimengModule } from '../primeng/primeng.module';
+import { PrimeNgModule } from '../primeng/prime-ng.module';
 import { HeaderComponent } from './header/header.component';
 
 
@@ -11,7 +11,10 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimeNgModule
+  ],
+  exports: [
+    HeaderComponent
   ]
 })
 export class SharedModule { }
