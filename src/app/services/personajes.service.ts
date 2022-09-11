@@ -35,6 +35,7 @@ export class PersonajesService {
               });
 
               return this.personajes = results;
+
             })
           );
     }
@@ -42,8 +43,10 @@ export class PersonajesService {
   }
 
   obtenerPersonajeById( id: number ) {
+
     const url = `${ base_url }/character/${ id }`;
     return this.http.get( url );
+    
   }
 
 

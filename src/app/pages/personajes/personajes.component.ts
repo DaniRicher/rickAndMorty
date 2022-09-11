@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes.service';
 import { Router } from '@angular/router';
+import { Result } from 'src/app/interfaces/personaje.interface';
 
 @Component({
   selector: 'app-personajes',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PersonajesComponent implements OnInit {
 
-  public personajes: any[] = [];
+  public personajes: Result[] = [];
   public episodiosDePersonaje: any = []
 
 
@@ -28,6 +29,11 @@ export class PersonajesComponent implements OnInit {
       this.personajes = personajes;
 
     });
+  }
+
+  guardarEnFavoritos( id: number ) {
+    console.log(id);
+
   }
 
   irALocation( url: string ) {

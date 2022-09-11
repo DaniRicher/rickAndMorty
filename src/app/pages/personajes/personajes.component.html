@@ -10,7 +10,8 @@
                 <th>Especie</th>
                 <th>Ultima Localización </th>
                 <th>Último Espisodio</th>
-                <th>Detalles </th>
+                <th>Detalles</th>
+                <th>Favorito</th>
             </tr>
         </ng-template>
 
@@ -23,6 +24,7 @@
                 <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
                 <td>{{ personaje.episode }}</td>
                 <td><button pButton label="Detalles" routerLink="{{ personaje.id }}"></button></td>
+                <td><button pButton label="Favorito" (click)="guardarEnFavoritos( personaje.id)"></button></td>
             </tr>
         </ng-template>
         
