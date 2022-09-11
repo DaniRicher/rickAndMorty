@@ -21,8 +21,8 @@
                 <td>{{ personaje.status }}</td>
                 <td>{{ personaje.species }}</td>
                 <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
-                <td>{{ personaje.episode.length }}</td>
-                <td><button pButton label="Detalles" routerLink="{{personaje.id }}"></button></td>
+                <td>{{ personaje.episode }}</td>
+                <td><button pButton label="Detalles" routerLink="{{ personaje.id }}"></button></td>
             </tr>
         </ng-template>
         

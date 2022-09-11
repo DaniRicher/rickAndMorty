@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class PersonajesComponent implements OnInit {
 
   public personajes: any[] = [];
-  public episodiosDePersonaje: any = [];
+  public episodiosDePersonaje: any = []
 
 
   constructor( private obtenerPersonajes: PersonajesService,
@@ -24,8 +24,8 @@ export class PersonajesComponent implements OnInit {
     this.obtenerPersonajes.obtenerPersonajes()
     .subscribe( (personajes) => {
 
-      this.personajes = personajes;
       console.log(personajes);
+      this.personajes = personajes;
 
     });
   }

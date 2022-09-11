@@ -27,6 +27,13 @@ export class PersonajesService {
       return this.http.get<Personaje>( url )
           .pipe(
             map( ({ results }) => {
+              results.forEach( ({ episode }) => {
+
+                episode.reverse().splice(1);
+                episode[0] = episode[0].split('/').pop()!
+                
+              });
+
               return this.personajes = results;
             })
           );
