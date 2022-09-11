@@ -7,8 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PersonajesComponent } from './personajes/personajes.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
-import { LocacionPersonajeComponent } from './locacion-personaje/locacion-personaje.component';
 import { PrimeNgModule } from '../primeng/prime-ng.module';
+import { LocationComponent } from './location/location.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { PrimeNgModule } from '../primeng/prime-ng.module';
     PersonajesComponent,
     DetallesComponent,
     FavoritosComponent,
-    LocacionPersonajeComponent
+    LocationComponent
   ],
   imports: [
     CommonModule,

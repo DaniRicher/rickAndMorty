@@ -1,1 +1,37 @@
-<p>detalles works!</p>
+<div class="flex">
+    <div class="col-12">
+
+        <div *ngFor="let personaje of personajes">
+            <h1>{{ personaje.name }}</h1>
+    
+            <div class="grid">
+                <div class="imagen col-12 sm:col-3 md:col-3">
+                    <img src="{{ personaje.image }}" alt="{{ personaje.name }}">
+                </div>
+    
+                <div class="col-12 sm:col-9">
+                    <div class="grid">
+                        <div class="col-12">
+                            
+                            <h4>Género: {{ personaje.gender }}</h4>
+                            <h4>Ubicación: {{ personaje.location.name }}</h4>
+                            <h4>Especie: {{ personaje.species }}</h4>
+                            <h4>Estado: {{ personaje.status }}</h4>
+                            <h4>Origen: {{ personaje.origin.name }}</h4>
+       
+                        </div>
+                    </div>
+                </div>
+                <div class="grid">
+                    
+                    <div class="col-12">
+                        <h4>Episodios en los que aparece:</h4>
+                        <span *ngFor="let episodios of episodiosDePersonaje"> {{ episodios }}. </span>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>

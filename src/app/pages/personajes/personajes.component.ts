@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personajes',
@@ -8,16 +9,33 @@ import { PersonajesService } from '../../services/personajes.service';
 })
 export class PersonajesComponent implements OnInit {
 
-  public prueba: any[] = []
+  public personajes: any[] = [];
+  public episodiosDePersonaje: any = [];
 
-  constructor( private obtenerPersonajes: PersonajesService ) { }
+
+  constructor( private obtenerPersonajes: PersonajesService,
+               private router: Router ) { }
 
   ngOnInit(): void {
-    this.obtenerPersonajes.obtenerPersonajes()
-        .subscribe( ({results}: any) => {
-          console.log(results);
-          this.prueba = results;
-        });
+    this.mostrarPersonaje();
   }
+
+  mostrarPersonaje() {
+    this.obtenerPersonajes.obtenerPersonajes()
+    .subscribe( (personajes) => {
+
+      this.personajes = personajes;
+      console.log(personajes);
+
+    });
+  }
+
+  irALocation( url: string ) {
+
+    const id = url.split('/').pop();
+    this.router.navigate([`/main/location/${ id }`]);
+
+  }
+
 
 }

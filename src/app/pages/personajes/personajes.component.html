@@ -1,13 +1,16 @@
-<div class="card">
-    <p-table [value]="prueba" responsiveLayout="scroll">
+
+
+<div class="card text-center">
+    <p-table [value]="personajes" responsiveLayout="scroll">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="imagen">Imagen <p-sortIcon field="imagen"></p-sortIcon></th>
-                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                <th pSortableColumn="estado">Estado del Personaje <p-sortIcon field="estado"></p-sortIcon></th>
-                <th pSortableColumn="especie">Especie <p-sortIcon field="especie"></p-sortIcon></th>
-                <th pSortableColumn="ulocation">Ultima Localización <p-sortIcon field="ulocation"></p-sortIcon></th>
-                <th pSortableColumn="uepisode">Ultimo Espisodio <p-sortIcon field="uepisode"></p-sortIcon></th>
+                <th >Imagen <i class="pi pi-image"></i></th>
+                <th>Nombre</th>
+                <th>Estado del Personaje</th>
+                <th>Especie</th>
+                <th>Ultima Localización </th>
+                <th>Último Espisodio</th>
+                <th>Detalles </th>
             </tr>
         </ng-template>
 
@@ -17,8 +20,9 @@
                 <td>{{ personaje.name }}</td>
                 <td>{{ personaje.status }}</td>
                 <td>{{ personaje.species }}</td>
-                <td>{{ personaje.location.name }}</td>
-                <td>{{ personaje.name }}</td>
+                <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
+                <td>{{ personaje.episode.length }}</td>
+                <td><button pButton label="Detalles" routerLink="{{personaje.id }}"></button></td>
             </tr>
         </ng-template>
         
