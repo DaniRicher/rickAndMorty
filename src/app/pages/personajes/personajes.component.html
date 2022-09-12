@@ -14,11 +14,12 @@
 
 
 <!-- Tabla -->
-<div class="card text-center" *ngIf="!cargando">
+<div class="card text-center align-content-center" 
+     *ngIf="!cargando">
     <p-table [value]="personajes" responsiveLayout="scroll">
         <ng-template pTemplate="header">
-            <tr class="text-center align-content-center">
-                <th >Imagen <i class="pi pi-image"></i></th>
+            <tr class="">
+                <th><i class="pi pi-image"></i></th>
                 <th>Nombre</th>
                 <th>Estado del Personaje</th>
                 <th>Especie</th>
@@ -31,7 +32,6 @@
 
         <ng-template pTemplate="body" let-personaje>
             <tr>
-                <!-- <td><img src="{{ personaje.image }}" alt="{{ personaje.name }}"></td> -->
                 <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
                 <td>{{ personaje.name }}</td>
                 <td>{{ personaje.status }}</td>
@@ -39,7 +39,7 @@
                 <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
                 <td>{{ personaje.episode[0] }}</td>
                 <td><button pButton label="Detalles" routerLink="{{ personaje.id }}"></button></td>
-                <td><button pButton label="Favorito" (click)="guardarEnFavoritos( personaje )"></button></td>
+                <td><button pButton label="Favorito" icon="pi pi-star" (click)="guardarEnFavoritos( personaje )"></button></td>
             </tr>
         </ng-template>
         
