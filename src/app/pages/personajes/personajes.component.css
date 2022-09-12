@@ -1,6 +1,11 @@
 img {
     width: 80%;
 }
-a{
+
+:host ::ng-deep .p-image {
+    width: 100%;
+}
+
+a {
     cursor: pointer;
 }

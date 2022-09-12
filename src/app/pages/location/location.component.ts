@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../../services/location.service';
-import { Location, Result } from '../../interfaces/location.interfaces';
+import { Result } from '../../interfaces/location.interfaces';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-location',
@@ -10,11 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LocationComponent implements OnInit {
 
+  public cargando: boolean = true;
+
   public locationId: Result[] = [];
   public id: number = 0;
 
   constructor( private location: LocationService, 
-               private activateRoute: ActivatedRoute ) { }
+               private activateRoute: ActivatedRoute,
+               private locationRuta: Location ) { }
 
   ngOnInit(): void {
     this.paramsId();
@@ -32,8 +37,12 @@ export class LocationComponent implements OnInit {
     this.location.obtenerLocation( this.id )
         .subscribe( (location) => {
           this.locationId.push(location);
-          console.log(this.locationId);
+          this.cargando = false;
         });
+  }
+
+  irAtras() {
+    this.locationRuta.back();
   }
 
 }

@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 
 //PrimeNg
 import { ButtonModule } from 'primeng/button';
-import { TabMenuModule } from 'primeng/tabmenu';
+import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ImageModule } from 'primeng/image';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule } from 'primeng/table';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -11,8 +17,14 @@ import { TableModule } from 'primeng/table';
 @NgModule({
   exports: [
     ButtonModule,
+    CardModule,
+    CarouselModule,
+    ConfirmDialogModule,
+    ImageModule,
+    ProgressSpinnerModule,
+    TableModule,
     TabMenuModule,
-    TableModule
+    ToastModule
   ]
 })
 export class PrimeNgModule { }

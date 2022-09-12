@@ -1,9 +1,23 @@
 
+<!-- Cargando -->
+<div class="text-center" *ngIf="cargando">
+    <p-progressSpinner></p-progressSpinner>
+    <br>
+    <span>Cargando...</span>
+</div>
 
-<div class="card text-center">
+<!-- Mensajes personalizados -->
+<p-confirmDialog [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+                 header="Confirmar"
+                 icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
+
+
+<!-- Tabla -->
+<div class="card text-center" *ngIf="!cargando">
     <p-table [value]="personajes" responsiveLayout="scroll">
         <ng-template pTemplate="header">
-            <tr>
+            <tr class="text-center align-content-center">
                 <th >Imagen <i class="pi pi-image"></i></th>
                 <th>Nombre</th>
                 <th>Estado del Personaje</th>
@@ -17,14 +31,15 @@
 
         <ng-template pTemplate="body" let-personaje>
             <tr>
-                <td><img src="{{ personaje.image }}" alt="{{ personaje.name }}"></td>
+                <!-- <td><img src="{{ personaje.image }}" alt="{{ personaje.name }}"></td> -->
+                <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
                 <td>{{ personaje.name }}</td>
                 <td>{{ personaje.status }}</td>
                 <td>{{ personaje.species }}</td>
                 <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
-                <td>{{ personaje.episode }}</td>
+                <td>{{ personaje.episode[0] }}</td>
                 <td><button pButton label="Detalles" routerLink="{{ personaje.id }}"></button></td>
-                <td><button pButton label="Favorito" (click)="guardarEnFavoritos( personaje.id)"></button></td>
+                <td><button pButton label="Favorito" (click)="guardarEnFavoritos( personaje )"></button></td>
             </tr>
         </ng-template>
         

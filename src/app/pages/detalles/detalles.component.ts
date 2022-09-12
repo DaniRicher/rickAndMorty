@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes.service';
 import { ActivatedRoute } from '@angular/router';
-import { Result, Info } from '../../interfaces/personaje.interface';
-import { PersonajeID } from '../../interfaces/personajesID.interfaces';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detalles',
@@ -11,12 +10,15 @@ import { PersonajeID } from '../../interfaces/personajesID.interfaces';
 })
 export class DetallesComponent implements OnInit {
 
+  public cargando: boolean = true;
+
   private id: number = 0;
   public personajes: any = [];
   public episodiosDePersonaje: any = [];
 
   constructor( private obtenerPersonajeById: PersonajesService,
-               private activateRoute: ActivatedRoute ) { }
+               private activateRoute: ActivatedRoute,
+               private location: Location ) { }
 
   ngOnInit(): void {
     this.paramsId();
@@ -32,20 +34,26 @@ export class DetallesComponent implements OnInit {
   }
 
   obtenerPersonaje() {
+
     this.obtenerPersonajeById.obtenerPersonajeById( this.id )
       .subscribe( (data:any) => {
         this.personajes.push(data);
-        console.log(data);
-      })
+        this.cargando = false;
+      });
   }
 
   episodiosPersonaje() {
+
     this.obtenerPersonajeById.obtenerPersonajeById( this.id )
-        .subscribe( ({episode}:any) => {
-          episode.forEach((info:any) => {
+        .subscribe( ({ episode }: any ) => {
+          episode.forEach(( info: any ) => {
             this.episodiosDePersonaje.push(info.split('/').pop());
           });
         })
+  }
+
+  irAtras() {
+    this.location.back();
   }
 
 }

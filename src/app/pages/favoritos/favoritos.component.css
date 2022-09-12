@@ -1,0 +1,50 @@
+.tarjeta{
+    height: auto;
+    width: auto;
+    margin: .3rem;
+}
+
+
+:host ::ng-deep .tam {
+    border-radius: 5%;
+    height: 100%;
+    width: 200px;
+}
+
+.personajes-item {
+    display: flex;
+    justify-content: center;
+}
+
+.animacion {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+:host ::ng-deep .p-image {
+    border-radius: 5%;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and ( max-width: 560px ) {
+
+    .tarjeta{
+        height: auto;
+        width: 100%;
+    }
+    
+    .animacion {
+        overflow:hidden;
+        height: 100%;
+        width: 100%;
+    }
+
+    :host ::ng-deep .tam {
+        border-radius: 5%;
+        height: 100%;
+        width: auto;
+    }
+    
+}

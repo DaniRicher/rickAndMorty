@@ -1,4 +1,11 @@
-<div class="flex">
+
+<div class="text-center" *ngIf="cargando">
+    <p-progressSpinner></p-progressSpinner>
+    <br>
+    <span>Cargando...</span>
+</div>
+
+<div class="flex" *ngIf="!cargando">
     <div class="col-12">
 
         <div *ngFor="let personaje of personajes">
@@ -35,3 +42,8 @@
         </div>
     </div>
 </div>
+
+<button pButton type="button"
+        (click)="irAtras()"
+        class="p-button-raised p-button-rounded p-button-danger"
+        icon="pi pi-arrow-circle-left"></button>
