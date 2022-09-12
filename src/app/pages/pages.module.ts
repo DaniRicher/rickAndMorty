@@ -9,6 +9,7 @@ import { DetallesComponent } from './detalles/detalles.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { PrimeNgModule } from '../primeng/prime-ng.module';
 import { LocationComponent } from './location/location.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LocationComponent } from './location/location.component';
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }
