@@ -37,20 +37,20 @@
                  </div>
              </ng-template>
      
-             <ng-template pTemplate="header" let-columns>
+             <ng-template pTemplate="header" let-columns >
                  <tr>
                      <th><i class="pi pi-image"></i></th>
                      <th>Nombre</th>
                      <th>Estado del Personaje</th>
                      <th>Especie</th>
-                     <th>Ultima Localización </th>
+                     <th>Última Localización </th>
                      <th>Último Espisodio</th>
                      <th>Detalles</th>
                      <th>Favorito</th>
                  </tr>
              </ng-template>
      
-             <ng-template pTemplate="body" let-personaje let-columns="columns">
+             <ng-template pTemplate="body" let-personaje let-columns="columns" let-i="rowIndex">
                  <tr>
                      <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
                      <td><span class="p-column-title">Nombre</span>{{ personaje.name }}</td>
@@ -58,12 +58,14 @@
                      <td><span class="p-column-title">Especie</span>{{ personaje.species }}</td>
                      <td><span class="p-column-title">Ultima Localización</span><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
                      <td><span class="p-column-title">Ultimo episodio</span>{{ personaje.episode[0] }}</td>
-                     <td><span class="p-column-title">Detalles</span><button pButton label="Detalles" icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
-                     <td><span class="p-column-title">Favoritos</span><button #favorito
-                                pButton 
-                                label="Favorito" 
-                                icon="pi pi-star" 
-                                (click)="guardarEnFavoritos( personaje )"></button></td>
+                     <td><span class="p-column-title">Detalles</span><button pButton icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
+                     <td><span class="p-column-title">Favoritos</span>
+                        <button #favorito
+                                id="boton"
+                                pButton
+                                icon="pi pi-star"
+                                (click)="guardarEnFavoritos( personaje )"
+                                ></button></td>
                  </tr>
              </ng-template>
              

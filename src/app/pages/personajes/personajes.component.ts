@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild, AfterViewInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes.service';
 import { Router } from '@angular/router';
 import { Result } from 'src/app/interfaces/personaje.interface';
@@ -6,8 +6,6 @@ import { Result } from 'src/app/interfaces/personaje.interface';
 //Mensajes Personalizados
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { LocalStorageService } from '../../services/local-storage.service';
-import { style } from '@angular/animations';
-import { __values } from 'tslib';
 
 
 @Component({
@@ -18,12 +16,17 @@ import { __values } from 'tslib';
 })
 export class PersonajesComponent implements OnInit {
 
-  @ViewChild('favorito') favorito!: ElementRef;
-  @ViewChild('table') table!: ElementRef;
+  //Detalles visuales
+  public favorito : boolean = false;
+  public icono: boolean = true;
 
+  //Carga de la pagina
   public cargando: boolean = true;
+
+  //Termino de busqueda
   public termino: string = '';
 
+  //Array de personajes
   public personajes: Result[] = [];
   public episodiosDePersonaje: any = [];
   public personajesFav: any[] = [];
@@ -34,12 +37,12 @@ export class PersonajesComponent implements OnInit {
                private router: Router,
                private message: MessageService,
                private confirmation: ConfirmationService,
-               private localStorage: LocalStorageService,
-               private render2: Renderer2 ) { }
+               private localStorage: LocalStorageService ) { }
 
   ngOnInit(): void {
     this.mostrarPersonajes();
   }
+  
 
   mostrarPersonajes() {
 
@@ -117,16 +120,6 @@ export class PersonajesComponent implements OnInit {
 
     this.termino = termino;
     
-  }
-
-  rastrearPor() {
-
-    const button = this.favorito.nativeElement;
-    let table = this.table.nativeElement;
-    console.log(this.favorito);
-    
-    // this.render2.listen
-
   }
 
 

@@ -18,3 +18,10 @@
 a {
     cursor: pointer;
 }
+
+ @media screen and (max-width: 960px) {
+    :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+        text-align: center;
+        padding: 5px;
+    }
+ }
