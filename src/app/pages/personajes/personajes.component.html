@@ -13,36 +13,59 @@
 <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
 
 
-<!-- Tabla -->
-<div class="card text-center align-content-center" 
-     *ngIf="!cargando">
-    <p-table [value]="personajes" responsiveLayout="scroll">
-        <ng-template pTemplate="header">
-            <tr class="">
-                <th><i class="pi pi-image"></i></th>
-                <th>Nombre</th>
-                <th>Estado del Personaje</th>
-                <th>Especie</th>
-                <th>Ultima Localización </th>
-                <th>Último Espisodio</th>
-                <th>Detalles</th>
-                <th>Favorito</th>
-            </tr>
-        </ng-template>
 
-        <ng-template pTemplate="body" let-personaje>
-            <tr>
-                <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
-                <td>{{ personaje.name }}</td>
-                <td>{{ personaje.status }}</td>
-                <td>{{ personaje.species }}</td>
-                <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
-                <td>{{ personaje.episode[0] }}</td>
-                <td><button pButton label="Detalles" icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
-                <td><button pButton label="Favorito" icon="pi pi-star" (click)="guardarEnFavoritos( personaje )"></button></td>
-            </tr>
-        </ng-template>
-        
-        
-    </p-table>
+<!-- Tabla -->
+<div class="flex card align-content-center" 
+     *ngIf="!cargando">
+     <div class="col-12" style="padding: 0; margin-top: 5px;">
+         <p-table [value]="personajes | busqueda:termino" responsiveLayout="scroll">
+     
+             <ng-template pTemplate="caption">
+                 <div class="grid align-items-center" style="margin: 5px;">
+                     <div class="col-12 sm:col-6">
+                         <h3 style="margin: 0;" >Listado de personajes</h3>  
+                     </div>
+                     <div class="p-inputgroup col-12 sm:col-6" style="height: 50px; margin-top: 5px;">
+                         <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+                         <input type="text" 
+                                pInputText
+                                (keyup)="buscar( txtSearch.value )"
+                                placeholder="Buscar Personajes"
+                                #txtSearch>         
+                     </div>
+     
+                 </div>
+             </ng-template>
+     
+             <ng-template pTemplate="header">
+                 <tr class="">
+                     <th><i class="pi pi-image"></i></th>
+                     <th>Nombre</th>
+                     <th>Estado del Personaje</th>
+                     <th>Especie</th>
+                     <th>Ultima Localización </th>
+                     <th>Último Espisodio</th>
+                     <th>Detalles</th>
+                     <th>Favorito</th>
+                 </tr>
+             </ng-template>
+     
+             <ng-template pTemplate="body" let-personaje>
+                 <tr>
+                     <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
+                     <td>{{ personaje.name }}</td>
+                     <td>{{ personaje.status }}</td>
+                     <td>{{ personaje.species }}</td>
+                     <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
+                     <td>{{ personaje.episode[0] }}</td>
+                     <td><button pButton label="Detalles" icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
+                     <td><button pButton label="Favorito" icon="pi pi-star" (click)="guardarEnFavoritos( personaje )"></button></td>
+                 </tr>
+             </ng-template>
+             
+             
+         </p-table>
+         
+     </div>
+
 </div>

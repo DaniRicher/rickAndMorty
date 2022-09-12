@@ -8,14 +8,15 @@
 <div class="flex" *ngIf="!cargando">
     <div class="col-12">
 
+        <h2 class="col-12">Infomarcion de locación</h2>
         <p-card>
             <div *ngFor="let location of locationId">
     
-                <h2>Nombre de la localización: {{ location.name }}</h2>
-                <h2>Tipo de localización: {{ location.type }}</h2>
-                <h2>Dimension: {{ location.dimension }}</h2>
-                <h2>Número de residentes: {{ location.residents.length }}</h2>
-                <h2>Creada: {{ location.created | date }}</h2>
+                <h3>Nombre de la localización: {{ location.name }}</h3>
+                <h3>Tipo de localización: {{ location.type }}</h3>
+                <h3>Dimensión: {{ location.dimension }}</h3>
+                <h3>Número de residentes: {{ location.residents.length }}</h3>
+                <h3>Creada: {{ location.created | date }}</h3>
     
             </div>
 

@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+:host ::ng-deep .p-datatable .p-datatable-header {
+    padding: 0;
+}
+
 
 :host ::ng-deep .p-image {
     width: 120px;

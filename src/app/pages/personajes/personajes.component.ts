@@ -17,6 +17,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
 export class PersonajesComponent implements OnInit {
 
   public cargando: boolean = true;
+  public termino: string = '';
 
   public personajes: Result[] = [];
   public episodiosDePersonaje: any = [];
@@ -104,6 +105,12 @@ export class PersonajesComponent implements OnInit {
     const id = url.split('/').pop();
     this.router.navigate([`/main/location/${ id }`]);
 
+  }
+
+  buscar( termino: string ) {
+
+    this.termino = termino;
+    
   }
 
 

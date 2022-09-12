@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Personaje, Result } from '../interfaces/personaje.interface';
 import { map, of } from 'rxjs';
@@ -35,13 +35,6 @@ export class PersonajesService {
 
               });
               
-              // results.forEach( ({ episode }) => {
-
-              //   episode.reverse().splice(1);
-              //   episode[0] = episode[0].split('/').pop()!
-                
-              // });
-
               return this.personajes = results;
 
             })
@@ -56,6 +49,5 @@ export class PersonajesService {
     return this.http.get( url );
     
   }
-
 
 }

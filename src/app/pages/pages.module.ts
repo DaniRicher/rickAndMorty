@@ -10,6 +10,7 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
 import { PrimeNgModule } from '../primeng/prime-ng.module';
 import { LocationComponent } from './location/location.component';
 import { ComponentsModule } from '../components/components.module';
+import { BusquedaPipe } from '../pipes/busqueda.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ComponentsModule } from '../components/components.module';
     PersonajesComponent,
     DetallesComponent,
     FavoritosComponent,
-    LocationComponent
+    LocationComponent,
+    BusquedaPipe,
   ],
   imports: [
     CommonModule,
