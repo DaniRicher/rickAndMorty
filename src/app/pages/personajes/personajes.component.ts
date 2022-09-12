@@ -121,6 +121,4 @@ export class PersonajesComponent implements OnInit {
     this.termino = termino;
     
   }
-
-
 }

@@ -13,9 +13,10 @@ import { LocalStorageService } from '../../services/local-storage.service';
 export class FavoritosComponent implements OnInit {
 
   public personajesFav: any[] = [];
+  public cargando:boolean = true;
   public responsiveOptions = [
     {
-      breakpoint: '1200px',
+      breakpoint: '1200',
       numVisible: 4,
       numScroll: 4
     },
@@ -42,7 +43,14 @@ export class FavoritosComponent implements OnInit {
                private message: MessageService ) { }
 
   ngOnInit(): void {
-    this.personajesFav = this.localStorageService.cargarLocalStorage();
+
+    setTimeout(() => {
+
+      this.personajesFav = this.localStorageService.cargarLocalStorage();
+      this.cargando = false;
+
+    }, 500);
+
   }
 
   obtenerInfoPersonaje( id: number ) {

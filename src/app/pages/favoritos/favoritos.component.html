@@ -1,6 +1,11 @@
 
+<div class="text-center" *ngIf="cargando">
+    <p-progressSpinner></p-progressSpinner>
+    <br>
+    <span>Cargando...</span>
+</div>
 
-<div *ngIf="personajesFav.length === 0" class="text-center">
+<div *ngIf="personajesFav.length === 0 && !cargando" class="text-center">
     <div class="">
         <h4>Aún no tiene personajes favoritos...</h4>
     </div>
@@ -12,8 +17,10 @@
                  icon="pi pi-exclamation-triangle"></p-confirmDialog>
 <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
 
-<p-carousel *ngIf="personajesFav.length > 0"
+<p-carousel *ngIf="personajesFav.length > 0 && !cargando"
             [value]="personajesFav"
+            [numVisible]="5" 
+            [numScroll]="5" 
             [responsiveOptions]="responsiveOptions"
             [circular]="true"
             [autoplayInterval]="3000">

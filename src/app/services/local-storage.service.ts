@@ -16,9 +16,9 @@ export class LocalStorageService {
 
   cargarLocalStorage() {
 
-    if( localStorage.getItem('personajesFav') ) {
+    if( localStorage.getItem('personajesFav')!) {
 
-      return JSON.parse( localStorage.getItem('personajesFav')! );
+      return JSON.parse( localStorage.getItem('personajesFav')!);
 
     } 
     
