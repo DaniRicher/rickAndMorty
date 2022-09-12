@@ -18,7 +18,7 @@
 <div class="flex card align-content-center" 
      *ngIf="!cargando">
      <div class="col-12" style="padding: 0; margin-top: 5px;">
-         <p-table [value]="personajes | busqueda:termino" responsiveLayout="scroll">
+         <p-table responsiveLayout="stack" [value]="personajes | busqueda:termino" >
      
              <ng-template pTemplate="caption">
                  <div class="grid align-items-center" style="margin: 5px;">
@@ -37,8 +37,8 @@
                  </div>
              </ng-template>
      
-             <ng-template pTemplate="header">
-                 <tr class="">
+             <ng-template pTemplate="header" let-columns>
+                 <tr>
                      <th><i class="pi pi-image"></i></th>
                      <th>Nombre</th>
                      <th>Estado del Personaje</th>
@@ -50,16 +50,20 @@
                  </tr>
              </ng-template>
      
-             <ng-template pTemplate="body" let-personaje>
+             <ng-template pTemplate="body" let-personaje let-columns="columns">
                  <tr>
                      <td><p-image imageClass="p-image" src="{{ personaje.image }}" [preview]="true"></p-image></td>
-                     <td>{{ personaje.name }}</td>
-                     <td>{{ personaje.status }}</td>
-                     <td>{{ personaje.species }}</td>
-                     <td><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
-                     <td>{{ personaje.episode[0] }}</td>
-                     <td><button pButton label="Detalles" icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
-                     <td><button pButton label="Favorito" icon="pi pi-star" (click)="guardarEnFavoritos( personaje )"></button></td>
+                     <td><span class="p-column-title">Nombre</span>{{ personaje.name }}</td>
+                     <td><span class="p-column-title">Estado del personaje</span>{{ personaje.status }}</td>
+                     <td><span class="p-column-title">Especie</span>{{ personaje.species }}</td>
+                     <td><span class="p-column-title">Ultima Localización</span><a (click)="irALocation( personaje.location.url )" routerLink>{{ personaje.location.name }}</a></td>
+                     <td><span class="p-column-title">Ultimo episodio</span>{{ personaje.episode[0] }}</td>
+                     <td><span class="p-column-title">Detalles</span><button pButton label="Detalles" icon="pi pi-info-circle" routerLink="{{ personaje.id }}"></button></td>
+                     <td><span class="p-column-title">Favoritos</span><button #favorito
+                                pButton 
+                                label="Favorito" 
+                                icon="pi pi-star" 
+                                (click)="guardarEnFavoritos( personaje )"></button></td>
                  </tr>
              </ng-template>
              

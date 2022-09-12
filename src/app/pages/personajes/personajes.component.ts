@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { PersonajesService } from '../../services/personajes.service';
 import { Router } from '@angular/router';
 import { Result } from 'src/app/interfaces/personaje.interface';
@@ -6,6 +6,8 @@ import { Result } from 'src/app/interfaces/personaje.interface';
 //Mensajes Personalizados
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { style } from '@angular/animations';
+import { __values } from 'tslib';
 
 
 @Component({
@@ -15,6 +17,9 @@ import { LocalStorageService } from '../../services/local-storage.service';
   providers: [ ConfirmationService, MessageService ]
 })
 export class PersonajesComponent implements OnInit {
+
+  @ViewChild('favorito') favorito!: ElementRef;
+  @ViewChild('table') table!: ElementRef;
 
   public cargando: boolean = true;
   public termino: string = '';
@@ -29,7 +34,8 @@ export class PersonajesComponent implements OnInit {
                private router: Router,
                private message: MessageService,
                private confirmation: ConfirmationService,
-               private localStorage: LocalStorageService ) { }
+               private localStorage: LocalStorageService,
+               private render2: Renderer2 ) { }
 
   ngOnInit(): void {
     this.mostrarPersonajes();
@@ -111,6 +117,16 @@ export class PersonajesComponent implements OnInit {
 
     this.termino = termino;
     
+  }
+
+  rastrearPor() {
+
+    const button = this.favorito.nativeElement;
+    let table = this.table.nativeElement;
+    console.log(this.favorito);
+    
+    // this.render2.listen
+
   }
 
 
