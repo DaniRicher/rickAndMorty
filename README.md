@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 En este proyecto se utilizó la libreria de PrimeNG para el diseño.
 
 Traté de usar la mayor cantidad de opciones que me ofrece Angular para este proyecto, las que consideré necesarias.
+Tambien traté de hacerla responsive...
 
 + LazyLoad
 + Pipes
